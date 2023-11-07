@@ -1,0 +1,118 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovementControler : MonoBehaviour
+{
+    [SerializeField]
+    float walkSpeed;
+
+    [SerializeField]
+    float crouchSpeed;
+
+    float currentMovementSpeed;
+
+    float currentLookRotationY;
+
+    [SerializeField]
+    float jumpHight;
+
+    [SerializeField]
+    float jumpAirTime;
+
+    [SerializeField]
+    float playerYVelocity;
+
+    [SerializeField]
+    float gravity;
+
+    float jumpSpeed;
+
+    [SerializeField]
+    Vector2 lookRotationSpeed;
+    [SerializeField]
+    Vector2 lookRotation;
+
+
+    Transform camera;
+    CharacterController characterController;
+    PlayerInputManager inputManager;
+    PlayerCollisionManager collisionManager;
+
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        gravity = jumpHight / 2 / (jumpAirTime * jumpAirTime);
+        jumpSpeed = Mathf.Sqrt(2 * jumpHight * gravity);
+        camera = Camera.main.transform;
+        characterController = GetComponent<CharacterController>();
+        inputManager = GetComponent<PlayerInputManager>();
+        collisionManager = GetComponent<PlayerCollisionManager>();
+        currentMovementSpeed = walkSpeed;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        SetGravity();
+        SetPlayerJump();
+        SetCrouchAndSpeed();
+        MovePlayer();
+        RotateCameraXPlayreY();
+    }
+
+    void MovePlayer()
+    {
+        Vector3 _yVelocity = Vector3.up * playerYVelocity;
+        Vector3 _moveDirection = (transform.forward * inputManager.DirectionalInput.y + transform.right * inputManager.DirectionalInput.x);
+        characterController.Move((_moveDirection * currentMovementSpeed + _yVelocity) * Time.deltaTime);
+    }
+
+    void SetGravity()
+    {
+        
+
+        if (!collisionManager.PlayerIsGrounded)
+        {
+            playerYVelocity -= gravity * Time.deltaTime;
+        }
+    }
+
+    void SetPlayerJump()
+    {
+        if(inputManager.JumpPressed && collisionManager.PlayerIsGrounded)
+        {
+            
+            playerYVelocity = jumpSpeed;
+        }
+    }
+
+    void SetCrouchAndSpeed()
+    {
+        if (inputManager.CrouchPressed)
+        {
+            currentMovementSpeed = crouchSpeed;
+            transform.localScale = new Vector3(1, .5f, 1);
+        }
+
+        else
+        {
+            currentMovementSpeed = walkSpeed;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    void RotateCameraXPlayreY()
+    {
+        lookRotation.x = inputManager.MouseMovement.x * lookRotationSpeed.x * Time.deltaTime;
+        lookRotation.y = inputManager.MouseMovement.y * -1 *  lookRotationSpeed.y * Time.deltaTime;
+        currentLookRotationY += lookRotation.y;
+        currentLookRotationY = Mathf.Clamp(currentLookRotationY, -90, 90);
+
+        camera.transform.localRotation = Quaternion.Euler(currentLookRotationY, 0f, 0f);
+        transform.Rotate(Vector3.up * lookRotation.x);
+    }
+}
