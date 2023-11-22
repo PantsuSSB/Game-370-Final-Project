@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    [SerializeField]
+    
     Vector2 directionalInput;
     public Vector2 DirectionalInput { get { return directionalInput; } }
 
-    [SerializeField]
     Vector2 mouseMovement;
     public Vector2 MouseMovement { get { return mouseMovement; } }
 
-    [SerializeField]
     bool jumpPressed;
     public bool JumpPressed { get { return jumpPressed; } }
 
-    [SerializeField]
     bool crouchPressed;
     public bool CrouchPressed { get { return crouchPressed; } }
+
+    bool interactPressed;
+    public bool InteractPressed { get { return interactPressed; } }
+
+    bool aimPressed;
+    public bool AimPressed { get { return aimPressed; } }
+
+    bool firePressed;
+    public bool FirePressed { get { return firePressed; } }
+
+    bool reloadPressed;
+    public bool ReloadPressed { get { return reloadPressed; } }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +56,16 @@ public class PlayerInputManager : MonoBehaviour
 
     void GetButtonInputs()
     {
-        jumpPressed = Input.GetButton("Jump");
+        jumpPressed = Input.GetButtonDown("Jump");
 
-        crouchPressed = Input.GetButton("Crouch");
+        crouchPressed = Input.GetButtonDown("Crouch");
+
+        interactPressed = Input.GetButtonDown("Interact");
+
+        reloadPressed = Input.GetButtonDown("Reload");
+
+        aimPressed = Input.GetButton("Fire2");
+
+        firePressed = Input.GetButton("Fire1");
     }
 }
