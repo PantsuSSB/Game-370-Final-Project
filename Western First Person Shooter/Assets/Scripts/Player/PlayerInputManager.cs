@@ -66,6 +66,6 @@ public class PlayerInputManager : MonoBehaviour
 
         aimPressed = Input.GetButton("Fire2");
 
-        firePressed = Input.GetButton("Fire1");
+        firePressed = Input.GetButtonDown("Fire1");
     }
 }

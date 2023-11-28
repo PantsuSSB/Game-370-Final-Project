@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1463149308274527250}
   - component: {fileID: 1463149308274527248}
   - component: {fileID: 1463149308274527249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -200,7 +200,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1766543170237346268}
   m_Father: {fileID: 1463149308059459041}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -255,3 +256,34 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463149308274527251}
   m_Enabled: 1
+--- !u!1 &6628951237099672647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1766543170237346268}
+  m_Layer: 6
+  m_Name: GunPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1766543170237346268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628951237099672647}
+  m_LocalRotation: {x: -0.060990497, y: -0.043538045, z: -0.0026629036, w: 0.9971848}
+  m_LocalPosition: {x: 0.6, y: -0.50000006, z: 1.0000194}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1463149308274527250}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -7, y: -5, z: 0}

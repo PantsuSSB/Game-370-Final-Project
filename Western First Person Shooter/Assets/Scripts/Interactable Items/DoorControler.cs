@@ -6,9 +6,13 @@ public class DoorControler : MonoBehaviour, IInteractable
 {
     [SerializeField]
     bool doorOpen = false;
+    [SerializeField]
+    bool doorLocked;
     Transform player;
     Animator animator;
     AudioSource audioSource;
+    [SerializeField]
+    GameObject doorLock;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +20,13 @@ public class DoorControler : MonoBehaviour, IInteractable
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        if(doorLock != null) 
+        {
+            SetDoorLockValue(true);
+            
+            GameObject _lockTransform = Instantiate(doorLock, transform.GetChild(0));
+            _lockTransform.transform.localScale = new Vector3(0.003f, 0.003f, 0.003f);
+        }
     }
 
     // Update is called once per frame
@@ -32,30 +43,42 @@ public class DoorControler : MonoBehaviour, IInteractable
     //This is used by the Player interaction Manager
     public void Interact()
     {
-        if (!doorOpen)
+        if (!doorLocked)
         {
-            if(player.position.z < transform.position.z) 
+            if (!doorOpen)
             {
-                animator.SetBool("DoorOpenForward", true);
-                animator.SetTrigger("DoorInteract");
-                audioSource.Play();
+                if (player.position.z < transform.position.z)
+                {
+                    animator.SetBool("DoorOpenForward", true);
+                    animator.SetTrigger("DoorInteract");
+                    audioSource.Play();
+                }
+
+                else
+                {
+                    animator.SetBool("DoorOpenForward", false);
+                    animator.SetTrigger("DoorInteract");
+                    audioSource.Play();
+                }
             }
 
             else
             {
-                animator.SetBool("DoorOpenForward", false);
                 animator.SetTrigger("DoorInteract");
                 audioSource.Play();
             }
         }
 
-        else 
+        else
         {
             animator.SetTrigger("DoorInteract");
-            audioSource.Play();
         }
     }
 
-        //Debug.Log(gameObject.name + " opened");
+    public void SetDoorLockValue(bool _doorLockedValue) 
+    { 
+        doorLocked = _doorLockedValue;
+        animator.SetBool("DoorLocked", _doorLockedValue);
+    }
     
 }
