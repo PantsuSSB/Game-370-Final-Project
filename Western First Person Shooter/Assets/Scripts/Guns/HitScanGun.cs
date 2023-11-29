@@ -41,6 +41,14 @@ public class HitScanGun : GunBase, IInteractable
                 //Debug.Log(_bulletSpreadPosition);
                 //if (_hitScan.collider.gameObject.layer == enemyLayer) {  }
 
+                //gets gun animator controller and plays the firing animation
+                Animator gunAnim = GetComponent<Animator>();
+                gunAnim.SetTrigger("gunFireAnim");
+
+                //gets gun sound
+                AudioSource gunSound = GetComponent<AudioSource>();
+                gunSound.Play();
+
                 if (_hitScan.collider != null) 
                 {
                     _hitScan.transform.TryGetComponent<IDestructible>(out IDestructible _destructible);
