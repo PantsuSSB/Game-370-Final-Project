@@ -4,20 +4,23 @@ ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: 5862899028515911031
-    second: gun|Rev_Fire_Anim
+      74: 2985480637918067649
+    second: Rev_FireAnim
   - first:
-      74: 4683103667057202599
-    second: gun|Rev_Idle_Anim
+      74: 3501057417022844805
+    second: Rev_Idle_Pose
   - first:
-      74: 5622551333009143999
-    second: gun|Rev_Idle_Pose
+      74: -945626641872876792
+    second: Rev_IdleAnim
   - first:
-      74: 3383884835957464412
-    second: gun|Rev_Ref_Pose
+      74: -1132996346318720412
+    second: Rev_Ref_Pose
   - first:
-      74: 3258611519912897321
-    second: gun|Rev_Walk_Anim
+      74: -8234292074625111326
+    second: Rev_ReloadAnim
+  - first:
+      74: 6630918424292623429
+    second: Rev_WalkAnim
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -48,11 +51,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: gun|Rev_Fire_Anim
-      takeName: gun|Rev_Fire_Anim
+      name: Rev_FireAnim
+      takeName: gunRig|Rev_FireAnim
       internalID: 0
       firstFrame: 0
-      lastFrame: 23
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -77,11 +80,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: gun|Rev_Idle_Anim
-      takeName: gun|Rev_Idle_Anim
+      name: Rev_Idle_Pose
+      takeName: gunRig|Rev_Idle_Pose
       internalID: 0
       firstFrame: 0
-      lastFrame: 59
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rev_IdleAnim
+      takeName: gunRig|Rev_IdleAnim
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -106,8 +138,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: gun|Rev_Idle_Pose
-      takeName: gun|Rev_Idle_Pose
+      name: Rev_Ref_Pose
+      takeName: gunRig|Rev_Ref_Pose
       internalID: 0
       firstFrame: 0
       lastFrame: 0
@@ -135,11 +167,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: gun|Rev_Ref_Pose
-      takeName: gun|Rev_Ref_Pose
+      name: Rev_ReloadAnim
+      takeName: gunRig|Rev_ReloadAnim
       internalID: 0
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -164,11 +196,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: gun|Rev_Walk_Anim
-      takeName: gun|Rev_Walk_Anim
+      name: Rev_WalkAnim
+      takeName: gunRig|Rev_WalkAnim
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
