@@ -22,7 +22,6 @@ public class HitScanGun : GunBase, IInteractable
         currentAmmoInClip = maxAmmoPerClip;
         if (transform.parent != null) GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
 
-
     }
 
     // Update is called once per frame
@@ -89,20 +88,35 @@ public class HitScanGun : GunBase, IInteractable
 
     public void Interact()
     {
+        //int LayerName = LayerMask.NameToLayer("Interactable");
+
         if (!gunIsHeld)
         {
             Transform _gunPosition = GameObject.Find("GunPosition").transform;
             if (_gunPosition.childCount > 0)
             {
+
+
                 Transform _playersOldGun = _gunPosition.GetChild(0);
                 _playersOldGun.parent = null;
                 _playersOldGun.position = transform.position;
                 _playersOldGun.rotation = transform.rotation;
+
+                gameObject.layer = 9;
+                Debug.Log("gun layer is: " + gameObject.layer);
             }
+
+
             transform.position = _gunPosition.position;
             transform.rotation = _gunPosition.rotation;
             transform.parent = _gunPosition;
+
+            gameObject.layer = 13;
+            Debug.Log("gun layer is: " + gameObject.layer);
+
             GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
+
+            
         }
         
     }

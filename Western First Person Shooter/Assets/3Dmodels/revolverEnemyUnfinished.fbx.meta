@@ -1,26 +1,8 @@
 fileFormatVersion: 2
-guid: afbeff32853701a41a8ddf773f7770e0
+guid: cdc8242470757a04db2fb0fca9d10060
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: 2985480637918067649
-    second: gunRig|Rev_FireAnim
-  - first:
-      74: 3501057417022844805
-    second: gunRig|Rev_Idle_Pose
-  - first:
-      74: -945626641872876792
-    second: gunRig|Rev_IdleAnim
-  - first:
-      74: -1132996346318720412
-    second: gunRig|Rev_Ref_Pose
-  - first:
-      74: -8234292074625111326
-    second: gunRig|Rev_ReloadAnim
-  - first:
-      74: 6630918424292623429
-    second: gunRig|Rev_WalkAnim
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
