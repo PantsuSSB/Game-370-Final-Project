@@ -25,12 +25,15 @@ public class HitScanGun : GunBase, IInteractable
         currentAmmoInClip = maxAmmoPerClip;
         if (transform.parent != null) GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Timer();
+
+
     }
 
     public override void Fire()
@@ -93,31 +96,37 @@ public class HitScanGun : GunBase, IInteractable
 
     public void Interact()
     {
-        //int LayerName = LayerMask.NameToLayer("Interactable");
 
         if (!gunIsHeld)
         {
             Transform _gunPosition = GameObject.Find("GunPosition").transform;
             if (_gunPosition.childCount > 0)
             {
-
+                /* tried to get walking animations to work, gonna give up now and just get the level built - ian
+                Animator gunAnim = GetComponent<Animator>();
+                gunAnim.SetFloat("vertical", Input.GetAxis("Vertical"));
+                gunAnim.SetFloat("horizontal", Input.GetAxis("Horizontal"));
+                */
+                //this works, but resetting it to the interactable layer doesnt for some reason - ian
+                //gameObject.layer = 10;
+                //Debug.Log("gun layer is: " + gameObject.layer);
 
                 Transform _playersOldGun = _gunPosition.GetChild(0);
                 _playersOldGun.parent = null;
                 _playersOldGun.position = transform.position;
                 _playersOldGun.rotation = transform.rotation;
 
-                gameObject.layer = 9;
-                Debug.Log("gun layer is: " + gameObject.layer);
+                
             }
 
+            // this isn't getting called for some reason - ian
+            // gameObject.layer = 14;
+            //Debug.Log("gun layer is: " + gameObject.layer);
 
             transform.position = _gunPosition.position;
             transform.rotation = _gunPosition.rotation;
             transform.parent = _gunPosition;
 
-           gameObject.layer = 14;
-            Debug.Log("gun layer is: " + gameObject.layer);
 
             GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
 
