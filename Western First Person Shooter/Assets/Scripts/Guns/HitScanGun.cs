@@ -15,6 +15,9 @@ public class HitScanGun : GunBase, IInteractable
     [SerializeField]
     AudioSource reloadSound;
 
+    public delegate void HitScanGunEvents();
+    public static event HitScanGunEvents gunFired;
+    public static event HitScanGunEvents gunReloaded;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,7 @@ public class HitScanGun : GunBase, IInteractable
                 }
 
             }
+            gunFired?.Invoke();
             currentAmmoInClip--;
             currentTimeBetweenFire = timeBetweenFire;
             Debug.Log("Current bullets left in " + gameObject.name + ": " + currentAmmoInClip);
@@ -81,6 +85,7 @@ public class HitScanGun : GunBase, IInteractable
             //gets gun animator controller and plays the reloading animation
             Animator gunAnim = GetComponent<Animator>();
             gunAnim.SetTrigger("gunReloadAnim");
+            gunReloaded?.Invoke();
             //plays reload sound
             reloadSound.Play();
         }
@@ -111,7 +116,7 @@ public class HitScanGun : GunBase, IInteractable
             transform.rotation = _gunPosition.rotation;
             transform.parent = _gunPosition;
 
-            gameObject.layer = 13;
+           gameObject.layer = 14;
             Debug.Log("gun layer is: " + gameObject.layer);
 
             GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);

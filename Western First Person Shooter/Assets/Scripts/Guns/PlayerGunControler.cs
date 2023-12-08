@@ -10,7 +10,7 @@ public class PlayerGunControler : MonoBehaviour
 
     PlayerInputManager inputManager;
 
-    public delegate void SetNewGun(string gunType);
+    public delegate void SetNewGun(HitScanGun setGun);
     public static event SetNewGun gunSet;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,6 @@ public class PlayerGunControler : MonoBehaviour
     public void SetCurrentGun(HitScanGun _hitScanGun)
     {
         currentHitScanGun = _hitScanGun;
-        gunSet?.Invoke(_hitScanGun.GunType);
+        gunSet?.Invoke(_hitScanGun);
     }
 }

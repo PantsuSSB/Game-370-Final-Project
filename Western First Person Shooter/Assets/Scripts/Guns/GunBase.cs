@@ -8,7 +8,8 @@ public abstract class GunBase : MonoBehaviour
     [SerializeReference]
     protected int maxAmmoPerClip;
     
-    protected int currentAmmoInClip;
+    [HideInInspector]
+    public int currentAmmoInClip;
 
     [SerializeReference]
     protected int bulletsPerFire;
@@ -31,7 +32,7 @@ public abstract class GunBase : MonoBehaviour
     protected float timeBetweenFire;
 
     protected float currentTimeBetweenFire;
-
+    [SerializeReference]
     protected bool gunIsHeld;
 
     [SerializeReference]

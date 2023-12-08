@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2149573793634912713}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &8234546330391307199
 SkinnedMeshRenderer:
@@ -143,8 +143,9 @@ GameObject:
   - component: {fileID: 1900071012539276113}
   - component: {fileID: 1900071012539276119}
   - component: {fileID: 1900071012539276116}
+  - component: {fileID: 6690014458919834994}
   m_Layer: 10
-  m_Name: rifle
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2432026751758430573}
   - {fileID: 9219051253829733700}
   - {fileID: 1740042174590893753}
   - {fileID: 4242630619556232313}
@@ -407,13 +409,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmoPerClip: 4
+  currentAmmoInClip: 0
   bulletsPerFire: 1
   bulletDistance: 20
   randomBulletSpread: 0
   bulletDamage: 2
   reloadTime: 2
   timeBetweenFire: 1.5
-  GunType: 
+  gunIsHeld: 0
+  GunType: rifle
   shootableLayers:
     serializedVersion: 2
     m_Bits: 2176
@@ -425,6 +429,34 @@ MonoBehaviour:
     m_Bits: 2048
   gunSound: {fileID: 1900071012539276118}
   reloadSound: {fileID: 1900071012539276113}
+--- !u!114 &6690014458919834994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630023056571847539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c23e255a2687b408a10d5e62fc5e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAmmoPerClip: 4
+  currentAmmoInClip: 0
+  bulletsPerFire: 1
+  bulletDistance: 2
+  randomBulletSpread: 0
+  bulletDamage: 2
+  reloadTime: 2
+  timeBetweenFire: 1.5
+  gunIsHeld: 0
+  GunType: 
+  bullet: {fileID: 7081121367916982202, guid: 00530ed5f308f684682609e56525fd09, type: 3}
+  bulletSpeed: 2
+  timeTillBulletDestorySelf: 2
+  gunSound: {fileID: 0}
+  reloadSound: {fileID: 0}
+  testBulletFire: 0
 --- !u!1 &3047285621933797704
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2149573793634912713}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &620309042513050148
 SkinnedMeshRenderer:
@@ -517,6 +549,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000000013038516, y: 0.019312259, z: 0.0041890573}
     m_Extent: {x: 0.0014230143, y: 0.041662674, z: 0.0085504055}
   m_DirtyAABB: 0
+--- !u!1 &3511315157788486281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2432026751758430573}
+  m_Layer: 0
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2432026751758430573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3511315157788486281}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.03, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2149573793634912713}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3802718096125550602
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +610,7 @@ Transform:
   m_Children:
   - {fileID: 2255684646489675582}
   m_Father: {fileID: 2149573793634912713}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4114193801196967684
 GameObject:
@@ -641,7 +704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2149573793634912713}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &5934076711847492549
 SkinnedMeshRenderer:

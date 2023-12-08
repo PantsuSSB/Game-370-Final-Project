@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1463149308059459046}
   - component: {fileID: 1463149308059459047}
   - component: {fileID: 1463149308059459048}
+  - component: {fileID: 2019493930662591026}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerIsGrounded: 0
-  groundCheckHight: 0.45
+  groundCheckHight: 0.4
   groundCheckSize: 0.5
   groundLayer:
     serializedVersion: 2
@@ -171,6 +172,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDetectionDistance: 1.8
+--- !u!114 &2019493930662591026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463149308059459049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb67c2eb9b7700946a7c17b3ef279d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHitScanGun: {fileID: 0}
 --- !u!1 &1463149308274527251
 GameObject:
   m_ObjectHideFlags: 0
