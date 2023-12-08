@@ -53,7 +53,7 @@ public class ProjectileGun : GunBase
                 GameObject _firedBullet = Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
                 Vector3 _bulletRotation = _firedBullet.transform.rotation.eulerAngles + _bulletSpreadPosition;
                 _firedBullet.transform.rotation = Quaternion.Euler(_bulletRotation);
-                _firedBullet.GetComponent<BulletControler>().SetBulletSpeed(bulletSpeed);
+                _firedBullet.GetComponent<BulletControler>().SetBulletStats(bulletSpeed, bulletDamage, timeTillBulletDestorySelf);
 
                 //Debug.DrawLine(firePoint.position, firePoint.position + (firePoint.forward + _bulletSpreadPosition) * bulletDistance, Color.green, 1);
                 //Debug.Log(_bulletSpreadPosition);

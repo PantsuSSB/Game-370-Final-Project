@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletControler : MonoBehaviour
 {
     float bulletSpeed;
+    int bulletDamage;
+    float timeTillBulletDestroy;
     Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
@@ -18,13 +20,35 @@ public class BulletControler : MonoBehaviour
         MoveBulletForward();
     }
 
-    public void SetBulletSpeed(float _bulletSpeed)
+    public void SetBulletStats(float _bulletSpeed, int _bulletDamage, float _timeTillBulletDestory)
     {
         bulletSpeed = _bulletSpeed;
+        bulletDamage = _bulletDamage;
+        timeTillBulletDestroy = _timeTillBulletDestory;
+    }
+
+    void BulletSelfDestroyTimer()
+    {
+        if(timeTillBulletDestroy >= 0) { timeTillBulletDestroy -= Time.fixedDeltaTime; }
+        if(timeTillBulletDestroy < 0) { Destroy(gameObject); }
     }
 
     void MoveBulletForward()
     {
         rigidbody.velocity = transform.forward * bulletSpeed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 6) { Destroy(gameObject); }
+
+        else if (other.gameObject.layer == 11) 
+        {
+            other.transform.TryGetComponent<IDestructible>(out IDestructible _destructible);
+            _destructible.DamageObject(bulletDamage);
+            Destroy(gameObject);
+        }
+
+        else if (other.gameObject.layer != 14) { Destroy(gameObject); Debug.Log("Destory bullet"); }
     }
 }
