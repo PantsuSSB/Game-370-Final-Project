@@ -1,35 +1,35 @@
 fileFormatVersion: 2
-guid: 5a8b927566170d146acf7e98fa3bea86
+guid: 344c337dc7c70e04aba89449c2d29b3b
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: -6097708826756900544
-    second: Skeleton|revEnemy_CrouchAnim
+      74: 7078487238561436493
+    second: Skeleton|CubeAction
   - first:
-      74: -3120959901161271916
-    second: Skeleton|revEnemy_CrouchFireAnim
+      74: -6196465900761567293
+    second: Skeleton|sgEnemy_Crouch
   - first:
-      74: 3609277297344569496
-    second: Skeleton|revEnemy_CrouchHideAnim
+      74: 1290649995712058685
+    second: Skeleton|sgEnemy_CrouchFire
   - first:
-      74: -8782347185386935078
-    second: Skeleton|revEnemy_CrouchHit
+      74: 830157009046833649
+    second: Skeleton|sgEnemy_CrouchHit
   - first:
-      74: 8845531739399437332
-    second: Skeleton|revEnemy_FireAnim
+      74: 2954587180590967497
+    second: Skeleton|sgEnemy_DeathPose
   - first:
-      74: -3341570617210418761
-    second: Skeleton|revEnemy_Hit
+      74: 2796282980401727359
+    second: Skeleton|sgEnemy_FireAnim
   - first:
-      74: -1333096666883175646
-    second: Skeleton|revEnemy_IdleAnim
+      74: -7876785025608224595
+    second: Skeleton|sgEnemy_HitAnim
   - first:
-      74: -195139864791142106
-    second: Skeleton|revEnemy_IdlePose
+      74: 8948996265107621566
+    second: Skeleton|sgEnemy_Idle
   - first:
-      74: 5090990901952185366
-    second: Skeleton|revEnemy_WalkAnim
+      74: -5624490187716130667
+    second: Skeleton|sgEnemy_IdleAnim
   externalObjects: {}
   materials:
     materialImportMode: 2
