@@ -758,8 +758,8 @@ MonoBehaviour:
   bullet: {fileID: 7081121367916982202, guid: 00530ed5f308f684682609e56525fd09, type: 3}
   bulletSpeed: 5
   timeTillBulletDestorySelf: 5
-  gunSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  gunSound: {fileID: 2082941198804259106}
+  reloadSound: {fileID: 2082941198804259107}
   testBulletFire: 0
 --- !u!1 &1176282495560026406
 GameObject:

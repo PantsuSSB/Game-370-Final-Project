@@ -79,6 +79,7 @@ public class ProjectileGun : GunBase
 
             }
             //gunFired?.Invoke();
+            gunSound.Play();
             currentAmmoInClip--;
             currentTimeBetweenFire = timeBetweenFire;
             Debug.Log("Current bullets left in " + gameObject.name + ": " + currentAmmoInClip);

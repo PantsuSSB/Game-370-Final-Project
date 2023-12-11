@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletControler : MonoBehaviour
 {
     float bulletSpeed;
+    [SerializeField]
     int bulletDamage;
     float timeTillBulletDestroy;
     Rigidbody rigidbody;
@@ -18,6 +19,7 @@ public class BulletControler : MonoBehaviour
     void FixedUpdate()
     {
         MoveBulletForward();
+        BulletSelfDestroyTimer();
     }
 
     public void SetBulletStats(float _bulletSpeed, int _bulletDamage, float _timeTillBulletDestory)
@@ -40,7 +42,12 @@ public class BulletControler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 6) { Destroy(gameObject); }
+        if (other.gameObject.layer == 6) 
+        {
+            other.gameObject.GetComponent<PlayerStats>().SubtractPlayerHealth(bulletDamage);
+            Debug.LogWarning("Hit Player");
+            Destroy(gameObject); 
+        }
 
         else if (other.gameObject.layer == 11) 
         {
@@ -49,6 +56,6 @@ public class BulletControler : MonoBehaviour
             Destroy(gameObject);
         }
 
-        else if (other.gameObject.layer != 14) { Destroy(gameObject); Debug.Log("Destory bullet"); }
+        //else if (other.gameObject.layer != 14) { Destroy(gameObject); Debug.Log("Destory bullet"); }
     }
 }

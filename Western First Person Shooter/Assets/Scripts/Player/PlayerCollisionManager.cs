@@ -7,6 +7,9 @@ public class PlayerCollisionManager : MonoBehaviour
     [SerializeField]
     bool playerIsGrounded;
 
+    [SerializeField]
+    bool playerTouchedDeath;
+
     public bool PlayerIsGrounded { get { return playerIsGrounded; } }
 
     [SerializeField]
@@ -18,6 +21,13 @@ public class PlayerCollisionManager : MonoBehaviour
     [SerializeField]
     LayerMask groundLayer;
 
+    [SerializeField]
+    LayerMask deathLayer;
+
+    public delegate void KillPlayerOnTouch();
+    public static event KillPlayerOnTouch PlayerTouchedFloor;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +38,7 @@ public class PlayerCollisionManager : MonoBehaviour
     private void FixedUpdate()
     {
         CheckIfPlayerIsGrounded();
+        CheckIfPlayerTouchedDeathLayer();
     }
 
     void CheckIfPlayerIsGrounded()
@@ -36,6 +47,19 @@ public class PlayerCollisionManager : MonoBehaviour
         Vector3 _groundCheckSize = new Vector3(transform.lossyScale.x - 0.05f, groundCheckSize, transform.lossyScale.z - 0.05f);
         
         playerIsGrounded = Physics.CheckSphere(_groundCheckCenter, groundCheckSize, groundLayer);
+    }
+
+    void CheckIfPlayerTouchedDeathLayer()
+    {
+        Vector3 _groundCheckCenter = new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y + groundCheckHight, transform.position.z);
+        Vector3 _groundCheckSize = new Vector3(transform.lossyScale.x - 0.05f, groundCheckSize, transform.lossyScale.z - 0.05f);
+
+         playerTouchedDeath = Physics.CheckSphere(_groundCheckCenter, groundCheckSize, deathLayer);
+        if (playerTouchedDeath)
+        {
+            Debug.Log("PlayerTouchedDeath");
+            PlayerTouchedFloor?.Invoke();
+        }
     }
 
     private void OnDrawGizmos()

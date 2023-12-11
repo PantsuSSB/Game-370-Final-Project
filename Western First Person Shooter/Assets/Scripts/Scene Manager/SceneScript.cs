@@ -15,6 +15,11 @@ public class SceneScript : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void LoadLoseScreen()
+    {
+        SceneManager.LoadScene("LoseScreen");
+    }
     public void ExitGame()
     {
         Application.Quit();
@@ -26,5 +31,19 @@ public class SceneScript : MonoBehaviour
         {
             SceneManager.LoadScene("WinScreen");
         }
+    }
+
+    private void OnEnable()
+    {
+        PlayerStats.PlayerDied += LoadLoseScreen;
+        TimerControler.TimerEnded += LoadLoseScreen;
+        PlayerCollisionManager.PlayerTouchedFloor += LoadLoseScreen;
+    }
+
+    private void OnDisable()
+    {
+        PlayerStats.PlayerDied -= LoadLoseScreen;
+        TimerControler.TimerEnded -= LoadLoseScreen;
+        PlayerCollisionManager.PlayerTouchedFloor -= LoadLoseScreen;
     }
 }
