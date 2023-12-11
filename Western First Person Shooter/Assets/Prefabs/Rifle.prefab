@@ -194,7 +194,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4763be9259a59974a9e0a65d4adff79f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c7262208679549f469e4a8db2d709e63, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -444,7 +444,7 @@ MonoBehaviour:
   maxAmmoPerClip: 4
   currentAmmoInClip: 0
   bulletsPerFire: 1
-  bulletDistance: 2
+  bulletDistance: 16
   randomBulletSpread: 0
   bulletDamage: 2
   reloadTime: 2

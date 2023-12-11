@@ -1521,11 +1521,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8565189212317332573}
   - component: {fileID: -5715242755424527137}
-  - component: {fileID: 2391719153082662963}
-  - component: {fileID: -1497222717435143911}
-  - component: {fileID: -6585280862999697924}
+  - component: {fileID: 7796939938467114426}
+  - component: {fileID: 305057554257802230}
+  - component: {fileID: 9157001911900169839}
   m_Layer: 14
-  m_Name: rifleEnemy
+  m_Name: rifleEnemy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,7 +1554,7 @@ Transform:
   - {fileID: 3011427927150054869}
   - {fileID: 1134515417906669680}
   - {fileID: 5330827697699920867}
-  - {fileID: 8099586933092443891}
+  - {fileID: 3873163055137871909}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   objectHit: {fileID: 8300000, guid: 76bd7fde2df6c0c4a8c1e6dca606f1b3, type: 3}
   objectDestoried: {fileID: 0}
   objectDestroyEffect: {fileID: 0}
---- !u!65 &2391719153082662963
+--- !u!65 &7796939938467114426
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1585,9 +1585,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 1.9, z: 0.57}
-  m_Center: {x: 0, y: 2.03, z: 2.32}
---- !u!82 &-1497222717435143911
+  m_Size: {x: 0.82, y: 2.22, z: 1}
+  m_Center: {x: 0, y: 1.92, z: 2.34}
+--- !u!82 &305057554257802230
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1683,7 +1683,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-6585280862999697924
+--- !u!114 &9157001911900169839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1695,11 +1695,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a96e057478d17a48ba0c417e85eb527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileGun: {fileID: 3559222680108612168}
+  projectileGun: {fileID: 8413665330585732254}
   distanceFromPlayer: 0
   currentTimeBetweenFire: 0
   gunRange: 0
---- !u!1001 &7904752613856898874
+--- !u!1001 &2888193565843902956
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1722,10 +1722,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 1630023056571847539, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1900071012539276119, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1736,15 +1732,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2149573793634912713, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.66
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2149573793634912713, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.66
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2149573793634912713, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.66
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2149573793634912713, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1832,10 +1828,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
---- !u!114 &3559222680108612168 stripped
+--- !u!4 &3873163055137871909 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2149573793634912713, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
+  m_PrefabInstance: {fileID: 2888193565843902956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8413665330585732254 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6690014458919834994, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
-  m_PrefabInstance: {fileID: 7904752613856898874}
+  m_PrefabInstance: {fileID: 2888193565843902956}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1843,8 +1844,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c23e255a2687b408a10d5e62fc5e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8099586933092443891 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2149573793634912713, guid: b3d0d41133047cc4abf981178d874a37, type: 3}
-  m_PrefabInstance: {fileID: 7904752613856898874}
-  m_PrefabAsset: {fileID: 0}

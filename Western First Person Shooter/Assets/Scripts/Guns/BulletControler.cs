@@ -56,6 +56,6 @@ public class BulletControler : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //else if (other.gameObject.layer != 14) { Destroy(gameObject); Debug.Log("Destory bullet"); }
+        else if (other.gameObject.layer != 14) { Destroy(gameObject); Debug.Log("Destory bullet"); }
     }
 }

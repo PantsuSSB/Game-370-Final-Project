@@ -509,7 +509,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4763be9259a59974a9e0a65d4adff79f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 09c97544f17b13248aeaa03b93c8ebd3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -673,7 +673,7 @@ MonoBehaviour:
   bullet: {fileID: 7081121367916982202, guid: 00530ed5f308f684682609e56525fd09, type: 3}
   bulletSpeed: 5
   timeTillBulletDestorySelf: 3
-  gunSound: {fileID: 5082793986833651266}
+  gunSound: {fileID: 5082793986833651267}
   reloadSound: {fileID: 5082793986833651267}
   testBulletFire: 0
 --- !u!1 &5920009196125719751

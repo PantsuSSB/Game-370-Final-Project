@@ -7,6 +7,8 @@ public class ProjectileGun : GunBase
     [SerializeField]
     GameObject bullet;
 
+    Transform player;
+
     [SerializeField]
     int bulletSpeed;
 
@@ -23,7 +25,9 @@ public class ProjectileGun : GunBase
     // Start is called before the first frame update
     void Start()
     {
+        currentTimeBetweenFire = 0;
         firePoint = transform.GetChild(0);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -35,8 +39,18 @@ public class ProjectileGun : GunBase
             Fire();
             
         }
+        firePoint.transform.LookAt(Camera.main.transform);
     }
 
+    public float GetTimeBetweenFire()
+    {
+        return currentTimeBetweenFire;
+    }
+
+    public float GetBulletDistance()
+    {
+        return bulletDistance;
+    }
     //Curently the enemy does not reload the gun. when reloading is added the the currentAmmoInClip will be incriminted.
     public override void Fire()
     {
@@ -60,8 +74,8 @@ public class ProjectileGun : GunBase
                 //if (_hitScan.collider.gameObject.layer == enemyLayer) {  }
 
                 //gets gun animator controller and plays the firing animation
-                Animator gunAnim = GetComponent<Animator>();
-                gunAnim.SetTrigger("gunFireAnim");
+                //Animator gunAnim = GetComponent<Animator>();
+                //gunAnim.SetTrigger("gunFireAnim");
 
                 //plays gunshot
                 //gunSound.Play();
