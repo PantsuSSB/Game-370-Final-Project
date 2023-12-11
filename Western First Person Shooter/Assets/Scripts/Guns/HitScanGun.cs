@@ -23,7 +23,12 @@ public class HitScanGun : GunBase, IInteractable
     {
         firePoint = Camera.main.transform;
         currentAmmoInClip = maxAmmoPerClip;
-        if (transform.parent != null && transform.parent.name == "GunPosition") GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
+        if (transform.parent != null && transform.parent.name == "GunPosition")
+        {
+            GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
+            gameObject.layer = 14;
+        }
+            
 
 
     }
@@ -108,19 +113,20 @@ public class HitScanGun : GunBase, IInteractable
                 gunAnim.SetFloat("horizontal", Input.GetAxis("Horizontal"));
                 */
                 //this works, but resetting it to the interactable layer doesnt for some reason - ian
-                gameObject.layer = 14;
+                //gameObject.layer = 14;
                 //Debug.Log("gun layer is: " + gameObject.layer);
 
                 Transform _playersOldGun = _gunPosition.GetChild(0);
                 _playersOldGun.parent = null;
                 _playersOldGun.position = transform.position;
                 _playersOldGun.rotation = transform.rotation;
+                _playersOldGun.gameObject.layer = 10;
 
                 
             }
 
             // this isn't getting called for some reason - ian
-             gameObject.layer = 10;
+             gameObject.layer = 14;
             //Debug.Log("gun layer is: " + gameObject.layer);
 
             transform.position = _gunPosition.position;

@@ -1795,7 +1795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &43353344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33497,7 +33497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &703752824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61293,7 +61293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1226182630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -106046,7 +106046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be764292a36b804c87069030f574ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 10
   maxRevolverAmmo: 60
   maxRifleAmmo: 40
   maxShotGunAmmo: 20

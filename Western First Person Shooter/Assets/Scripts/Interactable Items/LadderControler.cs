@@ -77,4 +77,9 @@ public class LadderControler : MonoBehaviour, IInteractable
 
         }
     }
+
+    private void OnDisable()
+    {
+        LadderInteracted = null;
+    }
 }

@@ -452,8 +452,8 @@ MonoBehaviour:
   gunIsHeld: 0
   GunType: 
   bullet: {fileID: 7081121367916982202, guid: 00530ed5f308f684682609e56525fd09, type: 3}
-  bulletSpeed: 2
-  timeTillBulletDestorySelf: 2
+  bulletSpeed: 5
+  timeTillBulletDestorySelf: 3
   gunSound: {fileID: 1900071012539276118}
   reloadSound: {fileID: 1900071012539276113}
   testBulletFire: 0
