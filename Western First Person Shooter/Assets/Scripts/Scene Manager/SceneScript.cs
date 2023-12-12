@@ -10,26 +10,36 @@ public class SceneScript : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("TestScene");
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void LoadLoseScreen()
     {
         SceneManager.LoadScene("LoseScreen");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
-    public void ExitGame()
+    /*public void ExitGame()
     {
         Application.Quit();
-    }
+    }*/
     //this is for the end of the level when the player enters a trigger to win the game
     private void OnTriggerEnter(Collider winScreen)
     {
         if (winScreen.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("WinScreen");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
         }
     }
 
