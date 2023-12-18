@@ -69,9 +69,9 @@ public class HitScanGun : GunBase, IInteractable
                     if(_destructible != null)
                     {
                         _destructible.DamageObject(bulletDamage);
-                        Debug.Log("Player Shot: " + _hitScan.collider.name);
+                        
                     }
-                    
+                    Debug.Log("Player Shot: " + _hitScan.collider.name);
                 }
 
             }

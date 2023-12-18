@@ -639,7 +639,7 @@ MonoBehaviour:
   GunType: shotgun
   shootableLayers:
     serializedVersion: 2
-    m_Bits: 2176
+    m_Bits: 61367
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
