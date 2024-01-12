@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 2082941198804259109}
   - component: {fileID: 2082941198804259108}
   - component: {fileID: -6018194498534284566}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164600714262752375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.93244696, y: 0.381, z: -22.909452}
+  m_LocalPosition: {x: 0.062000006, y: 3.292697, z: -15.932}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmoPerClip: 6
-  currentAmmoInClip: 0
+  currentAmmoInClip: 6
   bulletsPerFire: 1
   bulletDistance: 15
   randomBulletSpread: 0
@@ -733,6 +733,7 @@ MonoBehaviour:
     m_Bits: 2048
   gunSound: {fileID: 2082941198804259107}
   reloadSound: {fileID: 2082941198804259106}
+  bulletHoleEffect: {fileID: 2391553874796971873, guid: dd93109c138d9a04fa66dfe8307c9745, type: 3}
 --- !u!114 &-6018194498534284566
 MonoBehaviour:
   m_ObjectHideFlags: 0

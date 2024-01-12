@@ -429,6 +429,7 @@ MonoBehaviour:
     m_Bits: 2048
   gunSound: {fileID: 1900071012539276118}
   reloadSound: {fileID: 1900071012539276113}
+  bulletHoleEffect: {fileID: 2391553874796971873, guid: dd93109c138d9a04fa66dfe8307c9745, type: 3}
 --- !u!114 &6690014458919834994
 MonoBehaviour:
   m_ObjectHideFlags: 0

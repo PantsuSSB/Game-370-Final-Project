@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,11 @@ public class HitScanGun : GunBase, IInteractable
     [SerializeField]
     AudioSource reloadSound;
 
+    [SerializeField]
+    GameObject bulletHoleEffect;
+
     public delegate void HitScanGunEvents();
+    public static Action<HitScanGun> GunInteractedWith;
     public static event HitScanGunEvents gunFired;
     public static event HitScanGunEvents gunReloaded;
     // Start is called before the first frame update
@@ -23,11 +28,11 @@ public class HitScanGun : GunBase, IInteractable
     {
         firePoint = Camera.main.transform;
         currentAmmoInClip = maxAmmoPerClip;
-        if (transform.parent != null && transform.parent.name == "GunPosition")
-        {
-            GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
-            gameObject.layer = 14;
-        }
+        //if (transform.parent != null && transform.parent.name == "GunPosition")
+        //{
+        //    GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
+        //    gameObject.layer = 14;
+        //}
             
 
 
@@ -47,7 +52,7 @@ public class HitScanGun : GunBase, IInteractable
         {
             for(int _bullet = 0; _bullet < bulletsPerFire; _bullet++)
             {
-                Vector3 _bulletSpreadPosition = new Vector3(Random.Range(-randomBulletSpread, randomBulletSpread), Random.Range(-randomBulletSpread, randomBulletSpread), 0);
+                Vector3 _bulletSpreadPosition = new Vector3(UnityEngine.Random.Range(-randomBulletSpread, randomBulletSpread), UnityEngine.Random.Range(-randomBulletSpread, randomBulletSpread), 0);
 
                 RaycastHit _hitScan;
                 Physics.Raycast(firePoint.position, firePoint.forward + _bulletSpreadPosition, out _hitScan, bulletDistance, shootableLayers, QueryTriggerInteraction.Collide);
@@ -99,46 +104,17 @@ public class HitScanGun : GunBase, IInteractable
         }
     }
 
+    void SpawnBulletHoleEffect()
+    {
+
+    }
+
     public void Interact()
     {
 
-        if (!gunIsHeld)
-        {
-            Transform _gunPosition = GameObject.Find("GunPosition").transform;
-            if (_gunPosition.childCount > 0)
-            {
-                /* tried to get walking animations to work, gonna give up now and just get the level built - ian
-                Animator gunAnim = GetComponent<Animator>();
-                gunAnim.SetFloat("vertical", Input.GetAxis("Vertical"));
-                gunAnim.SetFloat("horizontal", Input.GetAxis("Horizontal"));
-                */
-                //this works, but resetting it to the interactable layer doesnt for some reason - ian
-                //gameObject.layer = 14;
-                //Debug.Log("gun layer is: " + gameObject.layer);
-
-                Transform _playersOldGun = _gunPosition.GetChild(0);
-                _playersOldGun.parent = null;
-                _playersOldGun.position = transform.position;
-                _playersOldGun.rotation = transform.rotation;
-                _playersOldGun.gameObject.layer = 10;
-
-                
-            }
-
-            // this isn't getting called for some reason - ian
-             gameObject.layer = 14;
-            //Debug.Log("gun layer is: " + gameObject.layer);
-
-            transform.position = _gunPosition.position;
-            transform.rotation = _gunPosition.rotation;
-            transform.parent = _gunPosition;
+        GunInteractedWith?.Invoke(this);
 
 
-            GetComponentInParent<PlayerGunControler>().SetCurrentGun(this);
-
-            
-        }
-        
     }
 
 }

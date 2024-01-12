@@ -175,7 +175,9 @@ public class PlayerMovementControler : MonoBehaviour
         {
             currentMovementState = MovementStates.crouching;
             currentMovementSpeed = crouchSpeed;
-            transform.localScale = new Vector3(1, .5f, 1);
+            characterController.height = characterController.height / 2;
+            camera.position = new Vector3(camera.position.x, camera.position.y - .5f, camera.position.z);
+            //transform.localScale = new Vector3(1, .5f, 1);
         }
 
         else if (inputManager.CrouchPressed && currentMovementState == MovementStates.crouching || 
@@ -183,7 +185,9 @@ public class PlayerMovementControler : MonoBehaviour
         {
             currentMovementState = MovementStates.idle;
             currentMovementSpeed = walkSpeed;
-            transform.localScale = new Vector3(1, 1, 1);
+            characterController.height = characterController.height * 2;
+            camera.position = new Vector3(camera.position.x, camera.position.y + .5f, camera.position.z);
+            //transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
